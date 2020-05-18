@@ -5,6 +5,8 @@ metadata:
     architecture: x86_64
     authoritative-source-url: registry.access.redhat.com
     build-date: 2020-01-30T08:16:17.662981
+    commit.image.appsody.dev/date: Mon May 18 12:05:19 2020 +0300
+    commit.image.appsody.dev/message: test commit
     commit.stack.appsody.dev/author: kilnerm <38245247+kilnerm@users.noreply.github.com>
     commit.stack.appsody.dev/committer: GitHub <noreply@github.com>
     commit.stack.appsody.dev/contextDir: /incubator/nodejs-express
@@ -14,7 +16,11 @@ metadata:
       Express collection
     distribution-scope: public
     help: For more information visit https://github.com/sclorg/s2i-nodejs-container
-    image.opencontainers.org/created: "2020-05-15T18:24:59+03:00"
+    image.opencontainers.org/created: "2020-05-18T15:26:20+03:00"
+    image.opencontainers.org/documentation: https://github.com/vvk17/quote-frontend
+    image.opencontainers.org/revision: bcb939c4d6e71129888353987f1098a61e8a63f8-modified
+    image.opencontainers.org/source: https://github.com/vvk17/quote-frontend/tree/master
+    image.opencontainers.org/url: https://github.com/vvk17/quote-frontend
     k8s.io/description: Node.js 10 available as container is a base platform for building
       and running various Node.js 10 applications and frameworks. Node.js is a platform
       built on Chrome's JavaScript runtime for easily building fast, scalable network
@@ -61,12 +67,13 @@ metadata:
     stack.appsody.dev/id: nodejs-express
     stack.appsody.dev/version: 0.2.10
   name: quote-frontend
+  namespace: vvk17-insurance-quote
 spec:
-  applicationImage: dev.local/quote-frontend
+  applicationImage: image-registry.openshift-image-registry.svc:5000/vvk17-insurance-quote/quote-frontend:v1
+  createKnativeService: false
   env:
   - name: BACKEND_URL
     value: http://quote-backend:8080/quote
-  createKnativeService: false
   expose: true
   livenessProbe:
     failureThreshold: 12
